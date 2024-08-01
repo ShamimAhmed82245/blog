@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>{{username|capfirst|truncatechars:4}}</h1>
-    {% for post in posts %}
-    <a href="/post/{{post.id}}/">
-      <h1>{{post.title|title}}</h1>
-    </a>
-    <p>{{post.content|truncatewords:3}}</p>
-    {%empty%}
-    <h1>No post</h1>
-    {% endfor %}
-  </body>
-</html>
+{% extends "base.html" %} {% load static %}
+
+{% block title %} home {% endblock %}
+
+
+{% block body %} {% for post in posts %}
+<a href="/post/{{ post.id }}/">
+  <h1>{{ post.title|title }}</h1>
+</a>
+<p>{{ post.content|truncatewords:3 }}</p>
+{% empty %}
+<h1>No post</h1>
+{% endfor %} {% endblock %}

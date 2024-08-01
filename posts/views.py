@@ -61,3 +61,4 @@ def google(request,id):
     url = reverse('post',args=[id])
     print(url)
     return HttpResponseRedirect(url)
+
