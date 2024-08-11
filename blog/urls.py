@@ -21,6 +21,9 @@ from posts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/',include('posts.urls')),
-    path('<int:id>/',views.google),
-    
+    path('account/',include('accounts.urls')),
+    path('users',include('django.contrib.auth.urls')),
 ]
+
+admin.site.site_header='My Blog'
+admin.site.index_title='My Blog'
